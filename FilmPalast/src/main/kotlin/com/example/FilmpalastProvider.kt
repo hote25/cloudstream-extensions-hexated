@@ -13,14 +13,14 @@ class FilmpalastProvider : MainAPI() {
     override var name = "Filelions"
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries, TvType.Others)
 
-    override var lang = "de"
+    override var lang = "en"
     override val hasMainPage = true
 
     private fun Element.toSearchResponse(): SearchResponse {
         val title = select("cite a.rb").text()
         val url = select("a.rb").attr("href")
         val posterPath = select("img.cover-opacity").attr("src")
-        return newMovieSearchResponse(title, type = TvType.Movie, url = url).apply {
+        return newMovieSearchResponse(title, type = TvType.Others, url = url).apply {
             this.posterUrl = "$mainUrl$posterPath"
         }
     }
@@ -34,7 +34,7 @@ class FilmpalastProvider : MainAPI() {
         val seriesResults = series.select("#content .liste.rb").mapNotNull {
             it.toSearchResponse()
         }
-        val homePageLists = listOf(HomePageList("Movies", movieResults), HomePageList("Series", seriesResults))
+        val homePageLists = listOf(HomePageList("Movies", movieResults), HomePageList("Others", seriesResults))
         return newHomePageResponse(homePageLists, hasNext = false)
     }
 
