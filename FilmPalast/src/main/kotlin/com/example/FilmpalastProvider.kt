@@ -9,9 +9,9 @@ import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 
 class FilmpalastProvider : MainAPI() {
-    override var mainUrl = "https://filmpalast.to"
-    override var name = "Filmpalast"
-    override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
+    override var mainUrl = "https://filelions.online"
+    override var name = "Filelions"
+    override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries, TvType.Others)
 
     override var lang = "de"
     override val hasMainPage = true
