@@ -26,5 +26,5 @@ class MetaGnathTuggers : Voe() {
 
 class FileLions : Filesim() {
     override val name = "Filelions"
-    override var mainUrl = "https://filelions.to"
+    override var mainUrl = "https://filelions.online"
 }
